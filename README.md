@@ -6,7 +6,18 @@ Stacks is a lightweight CSS/JavaScript framework that provides intuitive layout 
 
 ### Installation
 
-Include both CSS and JavaScript files in your HTML:
+#### Option 1: CDN (Recommended)
+
+Include the framework directly from CDN:
+
+```html
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ohjey/stacks@main/stacks.css">
+<script src="https://cdn.jsdelivr.net/gh/ohjey/stacks@main/stacks.js" defer></script>
+```
+
+#### Option 2: Local Files
+
+Download and include both CSS and JavaScript files in your HTML:
 
 ```html
 <link rel="stylesheet" href="stacks.css">
