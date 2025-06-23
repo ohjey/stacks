@@ -1,6 +1,6 @@
 # Stacks Framework Documentation
 
-Stacks is a lightweight CSS/JavaScript framework that provides intuitive layout components using custom HTML elements. It simplifies flexbox layouts with semantic `<vStack>` and `<hStack>` elements.
+Stacks is a lightweight JavaScript framework that provides intuitive layout components using custom HTML elements. It simplifies flexbox layouts with semantic `<vStack>` and `<hStack>` elements, requiring only a single JavaScript file.
 
 ## Getting Started
 
@@ -11,16 +11,14 @@ Stacks is a lightweight CSS/JavaScript framework that provides intuitive layout 
 Include the framework directly from CDN:
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ohjey/stacks@main/stacks.css">
 <script src="https://cdn.jsdelivr.net/gh/ohjey/stacks@main/stacks.js" defer></script>
 ```
 
 #### Option 2: Local Files
 
-Download and include both CSS and JavaScript files in your HTML:
+Download and include the JavaScript file in your HTML:
 
 ```html
-<link rel="stylesheet" href="stacks.css">
 <script src="stacks.js"></script>
 ```
 
@@ -53,7 +51,7 @@ Creates a vertical flexbox container where items are arranged in a column.
 - `justify-content: flex-start`
 - `flex-wrap: nowrap`
 - `gap: calc(1rem + 0.5vw)`
-- `width: 100%`
+- `width: auto`
 
 ### hStack (Horizontal Stack)
 
@@ -66,7 +64,7 @@ Creates a horizontal flexbox container where items are arranged in a row.
 - `justify-content: flex-start`
 - `flex-wrap: nowrap`
 - `gap: calc(1rem + 0.5vw)`
-- `width: 100%`
+- `width: auto`
 
 ## Attributes
 
@@ -169,6 +167,32 @@ Adds internal padding to the stack container.
 </vStack>
 ```
 
+### width
+
+Controls the width of the stack container.
+
+**Values:**
+- `full` - `100%`
+- `half` - `50%`
+- `third` - `33.33%`
+- `quarter` - `25%`
+- `fifth` - `20%`
+
+**Default:** `auto`
+
+```html
+<hStack>
+  <vStack width="half">Left column</vStack>
+  <vStack width="half">Right column</vStack>
+</hStack>
+
+<hStack>
+  <div width="third">1/3 width</div>
+  <div width="third">1/3 width</div>
+  <div width="third">1/3 width</div>
+</hStack>
+```
+
 ## Container System
 
 ### contain Attribute on Body
@@ -241,13 +265,37 @@ Apply the `contain` attribute to the `<body>` element to create a centered, max-
 </body>
 ```
 
-### Responsive Grid Alternative
+### Two-Column Layout
 
 ```html
-<hStack wrap="true" justify="center" gap="medium">
-  <div style="flex: 1 1 300px;">Item 1</div>
-  <div style="flex: 1 1 300px;">Item 2</div>
-  <div style="flex: 1 1 300px;">Item 3</div>
+<hStack gap="large">
+  <vStack width="half" padding="medium">
+    <h2>Left Column</h2>
+    <p>Content for the left side</p>
+  </vStack>
+  <vStack width="half" padding="medium">
+    <h2>Right Column</h2>
+    <p>Content for the right side</p>
+  </vStack>
+</hStack>
+```
+
+### Three-Column Grid
+
+```html
+<hStack gap="medium">
+  <vStack width="third" padding="small">
+    <h3>Column 1</h3>
+    <p>First column content</p>
+  </vStack>
+  <vStack width="third" padding="small">
+    <h3>Column 2</h3>
+    <p>Second column content</p>
+  </vStack>
+  <vStack width="third" padding="small">
+    <h3>Column 3</h3>
+    <p>Third column content</p>
+  </vStack>
 </hStack>
 ```
 
@@ -278,8 +326,7 @@ Stacks works in all modern browsers that support:
 
 ```
 stacks/
-├── stacks.css    # Basic reset and element width styles
-└── stacks.js     # Core functionality and attribute processing
+└── stacks.js     # Complete framework functionality
 ```
 
-The framework is intentionally lightweight, focusing solely on layout without imposing design opinions.
+The framework is intentionally lightweight with everything contained in a single JavaScript file, focusing solely on layout without imposing design opinions.
