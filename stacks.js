@@ -100,6 +100,30 @@ vStacks.forEach(vStack => {
     else{
         vStack.style.padding = '0rem';
     }
+    if(vStack.hasAttribute('width')){
+        const widthValue = vStack.getAttribute('width');
+        if(widthValue === 'full'){
+            vStack.style.width = '100%';
+        }
+        else if(widthValue === 'half'){
+            vStack.style.width = '50%';
+        }
+        else if(widthValue === 'third'){
+            vStack.style.width = '33.33%';
+        }
+        else if(widthValue === 'quarter'){
+            vStack.style.width = '25%';
+        }
+        else if(widthValue === 'fifth'){
+            vStack.style.width = '20%';
+        }
+        else{
+            console.error(`Invalid width value "${widthValue}" on element:`, vStack);
+        }
+    }
+    else{
+        vStack.style.width = 'auto';
+    }
 });
 
 document.querySelectorAll('hStack').forEach(hStack => {
@@ -209,6 +233,30 @@ document.querySelectorAll('hStack').forEach(hStack => {
     }
     else{
         hStack.style.padding = '0rem';
+    }
+    if(hStack.hasAttribute('width')){
+        const widthValue = hStack.getAttribute('width');
+        if(widthValue === 'full'){
+            hStack.style.width = '100%';
+        }
+        else if(widthValue === 'half'){
+            hStack.style.width = '50%';
+        }
+        else if(widthValue === 'third'){
+            hStack.style.width = '33.33%';
+        }
+        else if(widthValue === 'quarter'){
+            hStack.style.width = '25%';
+        }
+        else if(widthValue === 'fifth'){
+            hStack.style.width = '20%';
+        }
+        else{
+            console.error(`Invalid width value "${widthValue}" on element:`, hStack);
+        }
+    }
+    else{
+        hStack.style.width = 'auto';
     }
 });
 
